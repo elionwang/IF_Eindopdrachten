@@ -22,33 +22,37 @@ while play == True:
   while i < 10:
     guess = int(input('Raad een getal (100 t/m 999): '))
     if str(guess)[0] == str(randomInt)[0]:
-      num1 = 'groen'
+      num1 = '\033[1;32;40mgroen\033[0m'
     elif str(guess)[0] in str(randomInt):
-      num1 = 'oranje'
+      num1 = '\033[1;33;40moranje\033[0m'
     else:
-      num1 = 'rood'
+      num1 = '\033[1;31;40mrood\033[0m'
 
     if str(guess)[1] == str(randomInt)[1]:
-      num2 = 'groen'
+      num2 = '\033[1;32;40mgroen\033[0m'
     elif str(guess)[1] in str(randomInt):
-      num2 = 'oranje'
+      num2 = '\033[1;33;40moranje\033[0m'
     else:
-      num2 = 'rood'
+      num2 = num1 = '\033[1;31;40mrood\033[0m'
 
     if str(guess)[2] == str(randomInt)[2]:
-      num3 = 'groen'
+      num3 = '\033[1;32;40mgroen\033[0m'
     elif str(guess)[2] in str(randomInt):
-      num3 = 'oranje'
+      num3 = '\033[1;33;40moranje\033[0m'
     else:
-      num3 = 'rood'
+      num3 = num1 = '\033[1;31;40mrood\033[0m'
     
     if guess == randomInt:
       print(f'\033[1;32;40m{random.choice(randomVictory)} Je hebt gewonnen na {i + 1} poging(en).\033[0m')
       print('- - - - - - - - - - - - -')
       guessed = True
       break
-    else:
-      print(f'{random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
+    elif guess < randomInt:
+      print(f'⬆️ | {random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
+      print('- - - - - - - - - - - - -')
+      print(f'Hint: {num1} {num2} {num3}')
+    elif guess > randomInt:
+      print(f'⬇️ | {random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
       print('- - - - - - - - - - - - -')
       print(f'Hint: {num1} {num2} {num3}')
     i += 1

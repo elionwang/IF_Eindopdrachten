@@ -23,7 +23,8 @@ def print_board(board):
         print(' | ', end = "") # print verticaal lijntje naar console, om elk blok te verdelen (kolom), end voor new line
 
       if j == 8: # check of j gelijk staat tot 8 (laatste line)
-        print(board[i][j]) # print line en ga terug naar begin van loop   
+        print(board[i][j]) # print line en ga terug naar begin van loop
+        print    
       else:
         print(str(board[i][j]) + " ", end = "") # print line, gebruik str functie, want anders heb je een int 
 
@@ -92,4 +93,4 @@ print("\033c", end='')
 print('\033[1;32;40mOpgeloste sudoku:\033[0m')
 print_board(board)
 print('________________________')
-print(f'Sudoku opgelost in {time.time() - tijd} seconden.')
+print(f'Sudoku opgelost in {time.time() - tijd} seconden.') 
