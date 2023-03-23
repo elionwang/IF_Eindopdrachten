@@ -27,8 +27,11 @@ while play == True:
       print('- - - - - - - - - - - - -')
       guessed = True
       break
-    else:
-      print(f'{random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
+    elif guess < randomInt:
+      print(f'⬆️ | {random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
+      print('- - - - - - - - - - - - -')
+    elif guess > randomInt:
+      print(f'⬇️ | {random.choice(randomWrongGuess)} Je hebt nog {9 - i} pogingen om het getal te raden.')
       print('- - - - - - - - - - - - -')
     i += 1
     
